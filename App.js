@@ -11,11 +11,11 @@ export default function App() {
     { id: 3, nome: 'Frango com Cheddar', valor: '30,90' },
     { id: 4, nome: 'Moda da Casa', valor: '25,90' },
   ])
-  const [pizzaSelect, setPizzaSelect] = useState ([{ id: 0, nome: '', valor: '00,00' }])
+  const [pizzaSelect, setPizzaSelect] = useState([{ id: 0, nome: '', valor: '00,00' }])
 
- function selectPizza(item) {
+  function selectPizza(item) {
     setPizzaSelect(pizza[item])
-   
+
   }
 
   return (
@@ -23,15 +23,15 @@ export default function App() {
       <Text style={styles.logo}>Menu Pizza</Text>
 
       <Picker
-      //selectedValue={}
-       onValueChange={(itemValue, itemIndex) => selectPizza(itemIndex)}
+        //selectedValue={}
+        onValueChange={(itemValue, itemIndex) => selectPizza(itemIndex)}
       >
         {pizza.map(i => <Picker.Item key={i.id} value={i.valor} label={i.nome} />)}
 
       </Picker>
 
       <Text style={styles.pizzas}>Voce escolheu: {pizzaSelect.nome} </Text>
-       <Text style={styles.pizzas}>R$ {pizzaSelect.valor}</Text>
+      <Text style={styles.pizzas}>R$ {pizzaSelect.valor}</Text>
     </View>
   );
 }
